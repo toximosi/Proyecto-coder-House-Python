@@ -1,5 +1,8 @@
 """ modulo de URLS general del proyecto """
-#importaciones ---------------------------------------------------------------------------
+#bibliografia ----------------------------------------------------
+# https://github.com/django/django
+# https://docs.djangoproject.com/en/4.0
+#importaciones ---------------------------------------------------
 #django
 from django.contrib import admin
 from django.conf import settings
