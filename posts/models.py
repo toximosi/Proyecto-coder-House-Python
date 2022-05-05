@@ -23,5 +23,6 @@ class User(models.Model):
 
     is_admin = models.BooleanField(default=False) #filtro, para saber si es administrador
     #? deafult: valor por defecto
+    
     def __str__(self):
         return f"email: {self.email} - password: {self.password} - first_name: {self.first_name} - last_name: {self.last_name} - bio: {self.bio} - birthdate: {self.birthdate} - created: {self.created} - modified: {self.modified} - is_admin: {self.is_admin}"

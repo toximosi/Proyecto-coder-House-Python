@@ -9,8 +9,8 @@ from django.urls import path, include
 
 #urls ---------------------------------------------------------------------------
 urlpatterns = [
-
-    path('admin/', admin.site.urls),
+    #url para acceder a admin: ejem: http://127.0.0.1:8000/admin/
+    path("admin/", admin.site.urls),
     #urls apps -------------------------
 
 
