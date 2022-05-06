@@ -10,6 +10,7 @@
 from django.db import models
 from django.contrib.auth.models import User #heredamos de user de django
 # Create your models here.
+#Nos vasamos en el modelo de usuario de Django admin
 class Profile(models.Model):#en vez de USER le llamamos Profile por perfil de usuario
     """Profile model 
     modelo Proxy que extiende la base de datos con otra información"""

@@ -60,7 +60,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-       
+                BASE_DIR / "templates"
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -123,7 +123,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
+#bibliografía: https://docs.djangoproject.com/en/4.0/howto/static-files/
+STATICFILES_DIRS = [
+    BASE_DIR / "static/",
+    '/var/www/static/',
+]
+""" STATICFILES_DIRS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+] """
+#archivos media
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
