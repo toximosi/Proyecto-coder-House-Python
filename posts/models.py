@@ -30,7 +30,7 @@ class Post(models.Model):
     def __str__(self):
            return '{} by @{}'.format(self.title, self.user.username)
 
-class PhotoPost(models.Model):
+""" class PhotoPost(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)#on_delete, cuando se borre el usuario se borren los post
     #? unique: para que no se repita el mail en la base de datos
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -44,4 +44,4 @@ class PhotoPost(models.Model):
     #?auto_now: que se cree automáticamente
 
     def __str__(self):
-           return '{} by @{}'.format(self.title, self.user.username)
+           return '{} by @{}'.format(self.title, self.user.username) """

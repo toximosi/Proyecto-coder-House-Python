@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     
     # Local apps
     'posts',
-    'photopost'
+    'Photopost',
     'users',
 ]
 
