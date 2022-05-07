@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     
     # Local apps
     'posts',
+    'photopost'
     'users',
 ]
 
@@ -52,6 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'Project.middleware.ProfileCompletionMiddleware',
 ]
 
 ROOT_URLCONF = 'Project.urls'
@@ -61,7 +63,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
                 BASE_DIR / "templates"
-        ],
+        ],#se cambia para que recoja la carpeta que queremos de plantillas html
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,7 +128,7 @@ STATIC_URL = 'static/'
 #bibliografía: https://docs.djangoproject.com/en/4.0/howto/static-files/
 STATICFILES_DIRS = [
     BASE_DIR / "static/",
-    '/var/www/static/',
+    #'/var/www/static/',
 ]
 """ STATICFILES_DIRS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -135,6 +137,10 @@ STATICFILES_DIRS = [
 #archivos media
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
+
+LOGIN_URL = "/users/login/"
+LOGIN_REDIRECT_URL = "/" #redirige la vista de login por defecto
+LOGOUT_REDIRECT_URL = LOGIN_URL
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field

@@ -12,7 +12,7 @@ from users.models import Profile #importamos nuestro modelo
 # Code ------------------------------------------------------------
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):#hereda del modelo Admin de django
-    list_display = ('pk', 'user', 'phone_number', 'website', 'picture')
+    list_display = ('pk', 'user', 'first_name','last_name', 'phone_number', 'website', 'picture')
     list_display_links = ('pk', 'user',)#para que al pinchar el link nos lleve al detalle
     list_editable = ('phone_number', 'website', 'picture')#para poder editar los datos directamente en la tabla de admin
 

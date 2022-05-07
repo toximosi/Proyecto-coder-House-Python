@@ -16,14 +16,18 @@ class Profile(models.Model):#en vez de USER le llamamos Profile por perfil de us
     modelo Proxy que extiende la base de datos con otra información"""
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     #? on_delete: que hace si se borra el user->en este caso acturá como un SQL
+    first_name = models.CharField(max_length=50),
+    last_name = models.CharField(max_length=50),
     biography = models.TextField(blank=True) 
     phone_number = models.CharField(max_length=20, blank=True)
     #? blank=True, que permite que se quede vacio
     website = models.URLField(max_length=200, blank=True)
-    picture = models.ImageField(upload_to='users/pictures',blank=True,null=True )#!Necesario instalar pip install Pillowq
+    picture = models.ImageField(upload_to='users/pictures',blank=True,null=True )#!Necesario instalar pip install Pillow
     #upload_to: donde se guardarán las imágenes
     created = models.DateTimeField(auto_now_add=True)#fechas de creación 
     modified = models.DateTimeField(auto_now=True)#fecha de modificación 
     
     def __str__(self): #representacion en string en admin
-        return f"user: {self.user} - biography: {self.biography} - website: {self.website} - picture: {self.picture} - created: {self.created} - modified: {self.modified}" 
+        return f"user: {self.user} - first_name: {self.first_name} - last_name: {self.last_name} - biography: {self.biography} - website: {self.website} - picture: {self.picture} - created: {self.created} - modified: {self.modified}" 
+
+        

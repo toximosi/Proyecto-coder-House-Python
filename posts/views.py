@@ -1,43 +1,51 @@
-"""Posts views."""
-
+"""Posts Vistas"""
+# bibliografia: ---------------------------------------------------------
+    # http://ccbv.co.uk/projects/Django/4.0/django.views.generic.edit/CreateView/
+    # http://ccbv.co.uk/projects/Django/4.0/django.views.generic.edit/FormView/
+    # http://ccbv.co.uk/projects/Django/4.0/django.views.generic.edit/UpdateView/
+# importaciones ---------------------------------------------------------
 # Django
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, DetailView, ListView
 
-# Utilities
-from datetime import datetime
+# Forms
+from posts.forms import PostForm
 
-
-posts = [
-    {
-        'title': 'Mont Blanc',
-        'user': {
-            'name': 'Yésica Cortés',
-            'picture': 'https://picsum.photos/60/60/?image=1027'
-        },
-        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'photo': 'https://picsum.photos/800/600?image=1036',
-    },
-    {
-        'title': 'Via Láctea',
-        'user': {
-            'name': 'Christian Van der Henst',
-            'picture': 'https://picsum.photos/60/60/?image=1005'
-        },
-        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'photo': 'https://picsum.photos/800/800/?image=903',
-    },
-    {
-        'title': 'Nuevo auditorio',
-        'user': {
-            'name': 'Uriel (thespianartist)',
-            'picture': 'https://picsum.photos/60/60/?image=883'
-        },
-        'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
-        'photo': 'https://picsum.photos/500/700/?image=1076',
-    }
-]
+# Models
+from posts.models import Post
 
 
-def list_posts(request):
-    """List existing posts."""
-    return render(request, 'post/feed.html', {'posts': posts})
+# code -------------------------------------------------------------------
+class PostsFeedView(LoginRequiredMixin, ListView):
+    """ Devuelve todos las publicaciones """
+
+    template_name = 'posts/feed.html'
+    model = Post
+    ordering = ('-created',)
+    paginate_by = 30 #paginar
+    context_object_name = 'posts'
+
+
+class PostDetailView(LoginRequiredMixin, DetailView):
+    """ Devuelve el detalle de la publicación """
+
+    template_name = 'posts/detail.html'
+    queryset = Post.objects.all()
+    context_object_name = 'post'
+
+
+class CreatePostView(LoginRequiredMixin, CreateView):
+    """ Crea un nuevo post """
+
+    template_name = 'posts/new.hTml'
+    form_class = PostForm
+    success_url = reverse_lazy('posts:feed')
+
+    def get_context_data(self, **kwargs):
+        """Add user and profile to context."""
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
+        context['profile'] = self.request.user.profile
+        return context

@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}{% load static %}{% block container %}
+<!--variables -->
+{% comment %} {% {{title}} = titulo %} {% endcomment %}
+
+<!-- html -->
+
+    {% if form.errors %}
+        <p class="alert alert-danger">
+            Tu usuario o contraseña no son correctos.<br>
+            Intentalo de nuevo.
+        </p>
+    {% endif%}
+
+    <form method="POST" action="{% url "users:login" %}">
+        <!-- usamos url users:login -->
+        {% csrf_token %}<!-- crea un token único por sesión para evitar hackeos-->
+        <div class="form-group">
+            <input class="form-control" type="text" placeholder="Username" name="username" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" type="password" placeholder="Password" name="password" />
+        </div>
+        <button class="btn btn-primary btn-block mt-5" type="submit">Acceder</button>
+    </form>
+    <p class="mt-4">¿Aún no tienes una cuenta? <a href="{% url "users:signup" %}">Registrate aquí.</a></p>
+
+{% endblock %}
