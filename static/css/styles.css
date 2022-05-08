@@ -68,3 +68,27 @@ position: absolute;
     height: auto;
     transform: scale(1.2);
 }
+.avatar{
+    
+    width: 155px;
+    height: 155px;
+    border-radius: 100%;
+    float:left; 
+    margin-right: 20px;
+}
+
+.avatar img{
+    width: 100%;
+    height: auto;
+}
+
+.user-data{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+}
+.user-data div{
+    margin-right: 30px;
+}
