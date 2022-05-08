@@ -1,7 +1,8 @@
 {% extends "../parent.html" %} {% load static %} {% block contenidoQueCambia %}
 
 {% block head_content %}
-<title>@{{ user.username }} | Proyecto Coderhouse </title>
+<!--variables -->
+{% block title %} {{ user.username}} | Proyecto Python{% endblock %}
 {% endblock %}
 
 

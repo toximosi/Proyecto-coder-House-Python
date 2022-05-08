@@ -1,6 +1,6 @@
-{% extends "users/base.html" %}{% load static %}{% block container %}
+{% extends "users/base.html" %}{% load static %}{% block containerUser %}
 <!--variables -->
-{% comment %} {% {{title}} = titulo %} {% endcomment %}
+{% comment %} {% block title %} Login | Proyecto Python{% endblock %} {% endcomment %}
 
 <!-- html -->
 
@@ -15,12 +15,16 @@
         <!-- usamos url users:login -->
         {% csrf_token %}<!-- crea un token único por sesión para evitar hackeos-->
         <div class="form-group">
-            <input class="form-control" type="text" placeholder="Username" name="username" />
+            <label for="formFile" class="form-label">Nombre usuario:</label>
+            <input class="form-control form-control-lg" type="text" placeholder="Username" name="username" />
+            <div><i>Prueba con Manolito</i></div>
         </div>
         <div class="form-group">
-            <input class="form-control" type="password" placeholder="Password" name="password" />
+            <label for="formFile" class="form-label">Contraseña</label>
+            <input class="form-control form-control-lg" type="password" placeholder="Password" name="password" />
+            <div><i>Prueba con Quieroentrar00</i></div>
         </div>
-        <button class="btn btn-primary btn-block mt-5" type="submit">Acceder</button>
+        <button class="btn btn-primary btn-lg" type="submit">Acceder</button>
     </form>
     <p class="mt-4">¿Aún no tienes una cuenta? <a href="{% url "users:signup" %}">Registrate aquí.</a></p>
 

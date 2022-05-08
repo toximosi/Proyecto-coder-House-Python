@@ -1,10 +1,12 @@
 html, body {
-    background: #fafafa;
+    background: #fbfddb;
     height: 100%;
     width: 100%;
     font-family: 'Roboto', sans-serif;
 }
-
+body{
+    margin-top: 200px;
+}
 #auth-container {
     background: #fff;
     border: 1px solid #e6e6e6;
@@ -12,13 +14,13 @@ html, body {
 }
 
 #main-navbar {
-    background: #fff;
-    border-bottom: 1px solid rgba(0,0,0,.0975);
+    background: #fafdd6;
+    border-bottom: 1px solid #f8bbb5;
 }
 
 .post-container {
     background: #fff;
-    border: 1px solid #e6e6e6;
+    border: 1px solid #843324;
     border-radius: 3px;
 }
 
@@ -44,3 +46,23 @@ html, body {
     background: #fff;
 }
 
+.user-login-card{
+    padding: 60px;
+    padding-top: 120px;
+}
+
+.user-logo{
+position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: #ffffff;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50px);
+}
+.user-logo img{
+    width: 100%;
+    height: auto;
+    transform: scale(1.2);
+}
