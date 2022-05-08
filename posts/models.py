@@ -23,4 +23,4 @@ class Post(models.Model):
     #?auto_now: que se cree automáticamente
 
     def __str__(self):
-        return f"user: {self.user} - profile: {self.profile} - title: {self.title} - photo: {self.photo} - created: {self.created} - modified: {self.modified}"
+           return '{} by @{}'.format(self.title, self.profile)

@@ -25,5 +25,5 @@ class Profile(models.Model):#en vez de USER le llamamos Profile por perfil de us
     created = models.DateTimeField(auto_now_add=True, verbose_name="Creación")#fechas de creación 
     modified = models.DateTimeField(auto_now=True, verbose_name="Modificación")#fecha de modificación 
     
-    def __str__(self): #representacion en string en admin
-        return f"user: {self.user} - biography: {self.biography} - website: {self.website} - picture: {self.picture} - created: {self.created} - modified: {self.modified}" 
+    def __str__(self):
+           return '{} by @{}'.format(self.title, self.user.username)
