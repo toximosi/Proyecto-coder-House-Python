@@ -23,4 +23,4 @@ class Post(models.Model):
     #?auto_now: que se cree automáticamente
 
     def __str__(self):
-           return '{} by @{}'.format(self.title, self.profile)
+           return '{} by @{}'.format(self.title, self.profile.username)

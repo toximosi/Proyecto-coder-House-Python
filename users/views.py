@@ -16,7 +16,8 @@ from users.models import Profile
 # Forms
 from users.forms import SignupForm
 
-class UserDetailView(LoginRequiredMixin, DetailView):
+
+class UserDetailView(DetailView):#class UserDetailView(LoginRequiredMixin, DetailView):
     template_name = 'users/detail.html'
     slug_field = 'username'#necesitamos un identificador para qle queryset
     slug_url_kwarg = 'username'#como lo llamamos del lado del as url
@@ -39,7 +40,7 @@ class SignupView(FormView):
         form.save()
         return super().form_valid(form)
 
-class UpdateProfileView(LoginRequiredMixin, UpdateView):
+class UpdateProfileView(UpdateView):#class UpdateProfileView(LoginRequiredMixin, UpdateView):
     template_name = 'users/update_profile.html'
     model = Profile
     fields = ['website', 'biography', 'phone_number', 'picture']
@@ -58,5 +59,5 @@ class LoginView(auth_views.LoginView):
     #https://docs.djangoproject.com/en/4.0/topics/auth/default/#module-django.contrib.auth.views
 
 
-class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
+class LogoutView(auth_views.LogoutView):#class LogoutView(LoginRequiredMixin, auth_views.LogoutView):
     template_name = 'users/logged_out.html'

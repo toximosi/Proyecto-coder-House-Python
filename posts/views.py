@@ -18,17 +18,17 @@ from posts.models import Post
 
 
 # code -------------------------------------------------------------------
-class PostsFeedView(LoginRequiredMixin, ListView):
+class PostsFeedView(ListView):#class PostsFeedView(LoginRequiredMixin, ListView):
     """ Devuelve todos las publicaciones """
 
     template_name = 'posts/feed.html'
     model = Post
-    ordering = ('-created',)
+    ordering = ('-created',)#ordena los post según su creación
     paginate_by = 30 #paginar
     context_object_name = 'posts'
 
 
-class PostDetailView(LoginRequiredMixin, DetailView):
+class PostDetailView(DetailView):#class PostDetailView(LoginRequiredMixin, DetailView):
     """ Devuelve el detalle de la publicación """
 
     template_name = 'posts/detail.html'
@@ -36,10 +36,10 @@ class PostDetailView(LoginRequiredMixin, DetailView):
     context_object_name = 'post'
 
 
-class CreatePostView(LoginRequiredMixin, CreateView):
+class CreatePostView(CreateView):#class CreatePostView(LoginRequiredMixin, CreateView):
     """ Crea un nuevo post """
 
-    template_name = 'posts/new.hTml'
+    template_name = 'posts/new.html'
     form_class = PostForm
     success_url = reverse_lazy('posts:feed')
 
