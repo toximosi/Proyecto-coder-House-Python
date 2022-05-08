@@ -10,7 +10,7 @@ class PostAdmin(admin.ModelAdmin):
     """Post en admin"""
     list_display = ( 
     #'user',
-     'title', 'photo')
+     'profile', 'title', 'photo')
     search_fields = ('title', 'user__username', 'user__email')
     list_filter = ('created', 'modified')
 

@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     
     # Local apps
     'posts',
-    'Photopost',
     'users',
 ]
 
@@ -53,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'Project.middleware.ProfileCompletionMiddleware',
 ]
 
 ROOT_URLCONF = 'Project.urls'
@@ -63,7 +61,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
                 BASE_DIR / "templates"
-        ],#se cambia para que recoja la carpeta que queremos de plantillas html
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

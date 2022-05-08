@@ -1,7 +1,7 @@
 """ Post de URLS """
-# code ---------------------------------------------------------------------------
+#code ---------------------------------------------------------------------------
 # Django
-from django.urls import path
+from django.urls import path, include
 # Views
 from posts import views
 
@@ -9,6 +9,6 @@ from posts import views
 urlpatterns = [
     #urls apps -------------------------
     path(route='', view=views.PostsFeedView.as_view(), name='feed'),
-    path(route='posts/new/', view=views.CreatePostView.as_view(), name='create'),
+     path(route='posts/new/', view=views.CreatePostView.as_view(), name='create'),
     path(route='posts/<int:pk>/', view=views.PostDetailView.as_view(), name='detail') 
 ]
