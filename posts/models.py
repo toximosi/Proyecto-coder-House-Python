@@ -9,20 +9,15 @@ from django.contrib.auth.models import User
 
 
 #modelos -------------------------------------------------------------
-""" class User(models.Model):
-
-    def __str__(self):
-        return f"email: {self.email} - password: {self.password} - first_name: {self.first_name} - last_name: {self.last_name} - bio: {self.bio} - birthdate: {self.birthdate} - created: {self.created} - modified: {self.modified} - is_admin: {self.is_admin}" """
-
 class Post(models.Model):
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
     #? unique: para que no se repita el mail en la base de datos
-    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    profile = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Autor")
     #? unique: para que no se repita el mail en la base de datos
-    title = models.CharField(max_length=255)
-    photo = models.ImageField(upload_to='posts/photos')
+    title = models.CharField(max_length=255, verbose_name="Título")
+    photo = models.ImageField(upload_to='posts/photos', verbose_name="Foto")
 
-    created = models.DateTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name="Creación")
     #?auto_now_add: que se cree automáticamente
     modified = models.DateTimeField(auto_now=True)
     #?auto_now: que se cree automáticamente
