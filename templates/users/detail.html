@@ -1,10 +1,10 @@
-{% extends "base.html" %}
+{% extends "../parent.html" %} {% load static %} {% block contenidoQueCambia %}
 
-{% block head_content %}
+
+{% comment %} {% block head_content %}
 <title>@{{ user.username }} | Proyecto </title>
-{% endblock %}
+{% endblock %} {% endcomment %}
 
-{% block container %}
 
     <div class="container mb-5" style="margin-top: 8em;">
         <div class="row">

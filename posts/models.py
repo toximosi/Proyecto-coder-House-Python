@@ -13,6 +13,7 @@ class Post(models.Model):
     #user = models.ForeignKey(User, on_delete=models.CASCADE)
     #? unique: para que no se repita el mail en la base de datos
     profile = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Autor")
+    print(profile)
     #? unique: para que no se repita el mail en la base de datos
     title = models.CharField(max_length=255, verbose_name="Título")
     photo = models.ImageField(upload_to='posts/photos', verbose_name="Foto")

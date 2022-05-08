@@ -1,6 +1,7 @@
 """Users views"""
 #importaciones ---------------------------------------------------------
 # Django
+import profile
 from urllib import request
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import views as auth_views
@@ -19,7 +20,7 @@ from users.forms import SignupForm
 
 class UserDetailView(DetailView):#class UserDetailView(LoginRequiredMixin, DetailView):
     template_name = 'users/detail.html'
-    slug_field = 'username'#necesitamos un identificador para qle queryset
+    slug_field = 'username'#necesitamos un identificador para queryset
     slug_url_kwarg = 'username'#como lo llamamos del lado del as url
     queryset = User.objects.all()
     context_object_name = 'user'
@@ -28,7 +29,7 @@ class UserDetailView(DetailView):#class UserDetailView(LoginRequiredMixin, Detai
         """Add user's posts to context."""
         context = super().get_context_data(**kwargs)
         user = self.get_object()#get_object se encarga de traer los datos
-        context['posts'] = Post.objects.filter(user=user).order_by('-created')
+        context['posts'] = Post.objects.filter(profile=user).order_by('-created')
         return context
 
 class SignupView(FormView):
