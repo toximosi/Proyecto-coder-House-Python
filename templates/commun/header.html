@@ -8,13 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="App/assets/favicon.ico" />
     <!-- Bootstrap CSS: https://getbootstrap.com/docs/5.0/getting-started/introduction/ -->
-    <link href="{% static '/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link rel="stylesheet" href="{% static '/css/bootstrap/css/bootstrap.css' %}" />
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="{% static '/css/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <!-- Animate CSS: https://animate.style/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <!-- Font awesome: https://fontawesome.com/v3/get-started/ -->
     <link rel="stylesheet" href="{% static '/css/fontawesome/css/all.min.css'%}"/>
-    <link href="{% static '/css/styles.css' %}" rel="stylesheet" />
-    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/css/styles.css' %}"  />
+    
+    <title>{% if title %} {{title}} | Proyecto Python {% else %} Proyecto Python {% endif%}</title>
 </head>
 <body>
     {% include "commun/nav.html" %}
