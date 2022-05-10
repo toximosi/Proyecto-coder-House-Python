@@ -25,7 +25,7 @@ class PostsFeedView(ListView):#class PostsFeedView(LoginRequiredMixin, ListView)
     template_name = 'posts/feed.html'
     model = Post
     ordering = ('-created',)#ordena los post según su creación
-    paginate_by = 30 #paginar
+    paginate_by = 10 #paginar
     context_object_name = 'posts'
     
 
@@ -50,9 +50,9 @@ class CreatePostView(CreateView): #class CreatePostView(LoginRequiredMixin, Crea
     success_url = reverse_lazy('posts:feed')
 
     def get_context_data(self, **kwargs):
-        """Add user and profile to context."""
+        """Añadir el user y profile to context."""
         context = super().get_context_data(**kwargs)
-        context['user'] = self.request.user
+        #context['user'] = self.request.user
         context['profile'] = self.request.user.profile
         return context
 
